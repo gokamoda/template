@@ -3,7 +3,9 @@ import sys
 from pathlib import Path
 
 
-def init_logging(logger_name: str, log_path: str = "logs/info.log") -> logging.Logger:
+def init_logging(
+    logger_name: str, log_path: str = "logs/info.log"
+) -> logging.Logger:
     """_summary_
 
     Parameters
@@ -30,7 +32,10 @@ def init_logging(logger_name: str, log_path: str = "logs/info.log") -> logging.L
 
     if logger.handlers == []:
         dir_path.mkdir(parents=True, exist_ok=True)
-        formatter = logging.Formatter("%(asctime)s/%(levelname)s/%(name)s/%(funcName)s():%(lineno)s\n%(message)s \n")
+        formatter = logging.Formatter(
+            "%(asctime)s/%(levelname)s/%(name)s/%(funcName)s():%(lineno)s\n"
+            "%(message)s\n"
+        )
 
         # file handler
         fh = logging.FileHandler(log_path)
@@ -48,19 +53,3 @@ def init_logging(logger_name: str, log_path: str = "logs/info.log") -> logging.L
         logger.propagate = False
 
     return logger
-
-
-# if __name__ == "__main__":
-#     mylogger = init_logging(__name__, log_dir="logs", filename="test_logger.log", reset=True)
-#     mylogger.debug("debug")
-#     mylogger.info("info")
-#     mylogger.warning("warning")
-#     mylogger.error("error")
-#     mylogger.critical("critical")
-
-#     mylogger2 = init_logging("second", log_dir="logs", filename="test_logger.log", reset=False)
-#     mylogger2.debug("debug")
-#     mylogger2.info("info")
-#     mylogger2.warning("warning")
-#     mylogger2.error("error")
-#     mylogger2.critical("critical")

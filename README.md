@@ -26,4 +26,20 @@ poetry install
 ```
 
 ```
+. .venv/bin/activate
+```
+
+```
 poetry run python {project-name}/main.py
+```
+
+
+flake8, pylint
+```
+source check.sh
+```
+
+isort, black
+```
+source clean.sh
+```

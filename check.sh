@@ -1,0 +1,2 @@
+pylint template
+flake8 template
