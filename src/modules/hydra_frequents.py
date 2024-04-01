@@ -1,8 +1,8 @@
+import shutil
 from pathlib import Path
 
 import hydra
-import shutil
-from omegaconf import OmegaConf
+from omegaconf import DictConfig, OmegaConf
 
 from .mylogger import init_logging
 
@@ -10,7 +10,7 @@ LOG_PATH = "latest.log"
 logger = init_logging(__name__, log_path=LOG_PATH)
 
 
-def init_hydra_run(cfg):
+def init_hydra_run(cfg: DictConfig) -> Path:
     """_summary_
 
     Parameters
@@ -38,3 +38,19 @@ def init_hydra_run(cfg):
     save_latest_dir.mkdir(parents=True)
 
     return output_dir
+
+
+def end_hydra_run(cfg: DictConfig, output_dir: Path) -> None:
+    """Copy logs and outputs to the output directory
+
+    Parameters
+    ----------
+    cfg : DictConfig
+        cfg from hydra
+    output_dir : Path
+        hydra output directory
+        Should be returned by init_hydra_run
+    """
+    shutil.copy(LOG_PATH, f"{cfg.save_latest_dir}/main.log")
+    shutil.copytree(cfg.save_latest_dir, output_dir.joinpath("latest"))
+    logger.info("log file copied to logs/%s/latest/main.log", output_dir)

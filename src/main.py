@@ -1,9 +1,7 @@
-import shutil
-from pathlib import Path
-
 import hydra
-from modules import init_logging, init_hydra_run
 from omegaconf import DictConfig
+
+from modules import end_hydra_run, init_hydra_run, init_logging
 
 LOG_PATH = "latest.log"
 logger = init_logging(__name__, log_path=LOG_PATH)
@@ -21,11 +19,8 @@ def main(cfg: DictConfig) -> None:
 
     output_dir = init_hydra_run(cfg)
     # CODE HERE
-    
 
-    shutil.copy(LOG_PATH, f"{save_latest_dir}/main.log")
-    shutil.copytree(save_latest_dir, output_dir.joinpath("latest"))
-    logger.info("log file copied to logs/%s/latest/main.log", output_dir)
+    end_hydra_run(cfg, output_dir)
 
 
 if __name__ == "__main__":
