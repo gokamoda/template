@@ -1,2 +1,2 @@
-pylint template
-flake8 template
+poetry run pylint src
+poetry run flake8 src

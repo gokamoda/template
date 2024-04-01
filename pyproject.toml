@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["gokamoda <gokamoda@gmail.com>"]
 readme = "README.md"
-packages = [{include = "template"}]
+packages = [{include = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.10.5"
@@ -17,7 +17,7 @@ pylint = "^3.0.3"
 
 
 [tool.pylint]
-source-roots = ["template"]
+source-roots = ["src"]
 
 [tool.pylint.'MESSAGES CONTROL']
 disable = """
