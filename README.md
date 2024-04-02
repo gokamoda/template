@@ -2,11 +2,7 @@
 
 ## Clone
 ```
-git clone git@github.com:gokamoda/template.git
-```
-
-```
-mv template {project-name}
+git clone https://github.com/gokamoda/template.git
 ```
 
 ```
@@ -14,11 +10,7 @@ cd template
 ```
 
 ```
-sed -i '' 's/template/{project-name}/g' pyproject.toml
-```
-
-```
-mv template {project-name}
+git remote rm origin
 ```
 
 ```
@@ -26,20 +18,18 @@ poetry install
 ```
 
 ```
-. .venv/bin/activate
-```
-
-```
-poetry run python {project-name}/main.py
+poetry run python src/main.py
 ```
 
 
-flake8, pylint
-```
-source check.sh
-```
+## Code cleaning and checking
 
-isort, black
-```
-source clean.sh
-```
+- flake8, pylint
+    ```
+    source check.sh
+    ```
+
+- isort, black
+    ```
+    source clean.sh
+    ```
