@@ -10,11 +10,9 @@ mv template <project_name>
 ```
 
 
-```
 
 ```
 cd <project_name>
-```
 ```
 
 ```
