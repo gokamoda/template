@@ -6,7 +6,15 @@ git clone https://github.com/gokamoda/template.git
 ```
 
 ```
-cd template
+mv template <project_name>
+```
+
+
+```
+
+```
+cd <project_name>
+```
 ```
 
 ```
