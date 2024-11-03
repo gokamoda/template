@@ -2,10 +2,10 @@ import logging
 import sys
 from pathlib import Path
 
+from rich.logging import RichHandler
 
-def init_logging(
-    logger_name: str, log_path: str = "logs/info.log"
-) -> logging.Logger:
+
+def init_logging(logger_name: str, log_path: str = "logs/info.log") -> logging.Logger:
     """_summary_
 
     Parameters
@@ -32,10 +32,7 @@ def init_logging(
 
     if logger.handlers == []:
         dir_path.mkdir(parents=True, exist_ok=True)
-        formatter = logging.Formatter(
-            "%(asctime)s/%(levelname)s/%(name)s/%(funcName)s():%(lineno)s\n"
-            "%(message)s\n"
-        )
+        formatter = logging.Formatter("%(asctime)s/%(levelname)s/%(name)s/%(funcName)s():%(lineno)s\n" "%(message)s\n")
 
         # file handler
         fh = logging.FileHandler(log_path)
@@ -43,7 +40,8 @@ def init_logging(
         fh.setFormatter(formatter)
 
         # console handler
-        ch = logging.StreamHandler(sys.stdout)
+        ch = RichHandler(rich_tracebacks=True)
+        # ch = logging.StreamHandler(sys.stdout)
         ch.setLevel(logging.INFO)
         ch.setFormatter(formatter)
 

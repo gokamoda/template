@@ -1,41 +1,29 @@
 
 
-## Clone
-```
-git clone https://github.com/gokamoda/template.git
-```
+## Initial Setup
+- Clone the repository
+- Modify `pyproject.toml`.
 
-```
-mv template <project_name>
-```
-
-
-
-```
-cd <project_name>
-```
-
-```
-git remote rm origin
-```
-
-```
-poetry install
-```
-
-```
-poetry run python src/main.py
-```
-
-
-## Code cleaning and checking
-
-- flake8, pylint
+## UV (if not installed)
+- Install
     ```
-    source check.sh
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    ```
+- Path
+    ```
+    source .cargo/env
     ```
 
-- isort, black
+## Create environmen
+- Create .venv
     ```
-    source clean.sh
+    uv sync
+    ```
+- Activate .venv
+    ```
+    . .venv/bin/activate
+    ```
+- Install pre-commit
+    ```
+    pre-commit install
     ```
