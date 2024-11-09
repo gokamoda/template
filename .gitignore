@@ -6,3 +6,5 @@ poetry.lock
 
 .DS_Store
 .ruff_cache
+
+sftp.json

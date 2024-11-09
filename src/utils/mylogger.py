@@ -5,7 +5,7 @@ from pathlib import Path
 from rich.logging import RichHandler
 
 
-def init_logging(logger_name: str, log_path: str = "logs/info.log") -> logging.Logger:
+def init_logging(logger_name: str, log_path: str = "logs/info.log", clear=False) -> logging.Logger:
     """_summary_
 
     Parameters
@@ -29,6 +29,10 @@ def init_logging(logger_name: str, log_path: str = "logs/info.log") -> logging.L
     dir_path = path.parent
     if not dir_path.exists():
         dir_path.mkdir(parents=True)
+
+    if clear:
+        with open(log_path, "w") as f:
+            f.write("")
 
     if logger.handlers == []:
         dir_path.mkdir(parents=True, exist_ok=True)
