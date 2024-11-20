@@ -44,7 +44,7 @@ def init_logging(logger_name: str, log_path: str = "logs/info.log", clear=False)
         fh.setFormatter(formatter)
 
         # console handler
-        ch = RichHandler(rich_tracebacks=True)
+        ch = RichHandler(rich_tracebacks=True, show_time=False, show_level=False)
         # ch = logging.StreamHandler(sys.stdout)
         ch.setLevel(logging.INFO)
         ch.setFormatter(formatter)
