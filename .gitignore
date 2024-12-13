@@ -8,3 +8,4 @@ poetry.lock
 .ruff_cache
 
 sftp.json
+uv.lock
