@@ -9,3 +9,5 @@ poetry.lock
 
 sftp.json
 uv.lock
+build
+*.egg-info
